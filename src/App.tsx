@@ -1,7 +1,14 @@
 import React from "react";
+import Form from "./components/Form";
+import List from "./components/List";
 
 function App() {
-  return <div>Hello world!</div>;
+  return (
+    <div>
+      <Form />
+      <List />
+    </div>
+  );
 }
 
 export default App;
