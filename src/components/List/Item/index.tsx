@@ -1,14 +1,13 @@
+import { taskType } from "../../../types/task";
 import style from "./item.module.scss";
 
 export default function Item({
   id,
   name,
   time,
-}: {
-  id: number;
-  name: string;
-  time: string;
-}) {
+  selecionado,
+  completado,
+}: taskType) {
   return (
     <li key={id} className={style.item}>
       <h3>{name}</h3>
