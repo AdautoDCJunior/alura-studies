@@ -1,18 +1,16 @@
 import React from "react";
 import style from "./button.module.scss";
-//DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-class Button extends React.Component<{
-  type?: "button" | "reset" | "submit" | undefined;
+
+interface propsType {
   text: string;
-}> {
-  render() {
-    const { type = "button" } = this.props;
-    return (
-      <button type={type} className={style.button}>
-        {this.props.text}
-      </button>
-    );
-  }
+  type?: "button" | "reset" | "submit" | undefined;
+  onClick?: () => void;
 }
 
-export default Button;
+export default function Button({ text, type, onClick }: propsType) {
+  return (
+    <button type={type} className={style.button} onClick={onClick}>
+      {text}
+    </button>
+  );
+}
