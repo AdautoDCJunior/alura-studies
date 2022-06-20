@@ -7,12 +7,23 @@ import { taskType } from "../types/task";
 
 function App() {
   const [tasks, setTasks] = useState<taskType[]>([]);
+  const [selected, setSelected] = useState<taskType>();
+
+  function selectTask(taskSelected: taskType) {
+    setSelected(taskSelected);
+    setTasks((oldTasks) =>
+      oldTasks.map((task) => ({
+        ...task,
+        selected: taskSelected.id === task.id ? true : false,
+      }))
+    );
+  }
 
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks} />
-      <List tasks={tasks} />
-      <Timer />
+      <List tasks={tasks} selectTask={selectTask} />
+      <Timer selected={selected} />
     </div>
   );
 }

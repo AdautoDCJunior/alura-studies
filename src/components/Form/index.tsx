@@ -19,8 +19,8 @@ class Form extends React.Component<{
       {
         id: uuidv4(),
         ...this.state,
-        selecionado: false,
-        completado: false,
+        selected: false,
+        completed: false,
       },
     ]);
     this.setState({
